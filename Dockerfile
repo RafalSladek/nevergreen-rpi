@@ -2,7 +2,7 @@ FROM hypriot/rpi-java
 
 MAINTAINER Rafal Sladek <rafal.sladek@thoughtworks.com>
 
-RUN apt-get update -qq
+RUN apt-get update
 RUN apt-get install wget curl -qq
 
 # Get the latest release
