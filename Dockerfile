@@ -1,6 +1,6 @@
 FROM armv7/armhf-java8
 
-MAINTAINER Rafal Sladek <rafal.sladek@thoughtworks.com>
+MAINTAINER Rafal Sladek <rafal.sladek@scout24.com>
 
 RUN wget https://github.com/build-canaries/nevergreen/releases/download/v0.10.0/nevergreen-standalone.jar
 
