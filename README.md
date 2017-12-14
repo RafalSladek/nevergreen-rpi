@@ -5,12 +5,12 @@ nevegreen docker container for raspberry pi
 
 To run latest version of container with default AES key
 ```
-docker run -d -p [host-port]:5000 buildcanariesteam/nevergreen 
+docker run -d -p [host-port]:5000 rafalsladek/nevergreen-rpi
 ```
 
 To run latest version of container with your AES key
 ```
-docker run -d -p [host-port]:5000 -e "AES_KEY=[your-key]" buildcanariesteam/nevergreen 
+docker run -d -p [host-port]:5000 -e "AES_KEY=[your-key]" rafalsladek/nevergreen-rpi
 ```
 
 ### How to generate AES_KEY
@@ -20,3 +20,8 @@ If you are using authentication with your CI server, it is strongly recommended 
 openssl rand -base64 29 | tr -d "=+/" | cut -c1-16
 ```
 , ensure it is 16 characters with no special characters.
+
+### Quick start
+```
+docker run -d -p 5000:5000 -e "AES_KEY=$(openssl rand -base64 29 | tr -d "=+/" | cut -c1-16)" --name nevergreen-rpi --restart unless-stopped rafalsladek/nevergreen-rpi
+```
