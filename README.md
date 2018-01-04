@@ -23,5 +23,11 @@ openssl rand -base64 29 | tr -d "=+/" | cut -c1-16
 
 ### Quick start
 ```
-docker run -d -p 5000:5000 -e "AES_KEY=$(openssl rand -base64 29 | tr -d "=+/" | cut -c1-16)" --name nevergreen-rpi --restart unless-stopped rafalsladek/nevergreen-rpi
+docker run -d -p 5000:5000 -e "AES_KEY=$(openssl rand -base64 29 | tr -d "=+/" | cut -c1-16)" --name nevergreen-rpi --restart unless-stopped rafalsladek/nevergreen-rpi:latest
+```
+
+### How to change restart policy of existing docker container. It will re-start nevergreen container if it stops (https://docs.docker.com/engine/admin/start-containers-automatically/#use-a-restart-policy). 
+
+```
+docker update --restart=always nevergreen-rpi
 ```
